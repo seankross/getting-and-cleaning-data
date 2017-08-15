@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Getting and Cleaning Data</title>
+  <meta name="description" content="Getting and Cleaning Data">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Getting and Cleaning Data" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://seankross.com/getting-and-cleaning-data/" />
+  <meta property="og:image" content="http://seankross.com/getting-and-cleaning-data/images/cover.png" />
+  
+  <meta name="github-repo" content="seankross/getting-and-cleaning-data" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Getting and Cleaning Data" />
+  
+  
+  <meta name="twitter:image" content="http://seankross.com/getting-and-cleaning-data/images/cover.png" />
+
+<meta name="author" content="Sean Kross">
+
+
+<meta name="date" content="2017-08-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="introduction.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Getting and Cleaning Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Title Page</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html"><i class="fa fa-check"></i><b>1</b> Philosophies of Data</a><ul>
+<li class="chapter" data-level="1.1" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#data-objects"><i class="fa fa-check"></i><b>1.1</b> Data Objects</a></li>
+<li class="chapter" data-level="1.2" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#tidy-data"><i class="fa fa-check"></i><b>1.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="1.3" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#matrix-data"><i class="fa fa-check"></i><b>1.3</b> Matrix Data</a></li>
+<li class="chapter" data-level="1.4" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#hierarchical-data"><i class="fa fa-check"></i><b>1.4</b> Hierarchical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-from-files.html"><a href="data-from-files.html"><i class="fa fa-check"></i><b>2</b> Data from Files</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-from-files.html"><a href="data-from-files.html#tabular-data"><i class="fa fa-check"></i><b>2.1</b> Tabular Data</a></li>
+<li class="chapter" data-level="2.2" data-path="data-from-files.html"><a href="data-from-files.html#text"><i class="fa fa-check"></i><b>2.2</b> Text</a></li>
+<li class="chapter" data-level="2.3" data-path="data-from-files.html"><a href="data-from-files.html#images"><i class="fa fa-check"></i><b>2.3</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-from-the-web.html"><a href="data-from-the-web.html"><i class="fa fa-check"></i><b>3</b> Data from the Web</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-from-the-web.html"><a href="data-from-the-web.html#files"><i class="fa fa-check"></i><b>3.1</b> Files</a></li>
+<li class="chapter" data-level="3.2" data-path="data-from-the-web.html"><a href="data-from-the-web.html#apis"><i class="fa fa-check"></i><b>3.2</b> APIs</a></li>
+<li class="chapter" data-level="3.3" data-path="data-from-the-web.html"><a href="data-from-the-web.html#web-scraping"><i class="fa fa-check"></i><b>3.3</b> Web Scraping</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="applied-tidying.html"><a href="applied-tidying.html"><i class="fa fa-check"></i><b>4</b> Applied Tidying</a><ul>
+<li class="chapter" data-level="4.1" data-path="applied-tidying.html"><a href="applied-tidying.html#text-manipulation"><i class="fa fa-check"></i><b>4.1</b> Text Manipulation</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="applied-tidying.html"><a href="applied-tidying.html#regular-expressions"><i class="fa fa-check"></i><b>4.1.1</b> Regular Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="applied-tidying.html"><a href="applied-tidying.html#dates-times"><i class="fa fa-check"></i><b>4.2</b> Dates &amp; Times</a></li>
+<li class="chapter" data-level="4.3" data-path="applied-tidying.html"><a href="applied-tidying.html#data-rectangling"><i class="fa fa-check"></i><b>4.3</b> Data Rectangling</a></li>
+<li class="chapter" data-level="4.4" data-path="applied-tidying.html"><a href="applied-tidying.html#databases"><i class="fa fa-check"></i><b>4.4</b> Databases</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting and Cleaning Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Getting and Cleaning Data</h1>
+<h4 class="author"><em>Sean Kross</em></h4>
+<h4 class="date"><em>2017-08-15</em></h4>
+</div>
+<div id="title-page" class="section level1 unnumbered">
+<h1>Title Page</h1>
+<p><img src="images/cover.png" width="350" height="560" alt="Cover image" /></p>
+<p>Cover Image: <em>The Crossing Sweeper</em> by Seymour Joseph Guy</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

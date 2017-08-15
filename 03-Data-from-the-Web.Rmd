@@ -1,0 +1,16 @@
+# Data from the Web
+
+## Files
+
+- `downloadr`
+
+## APIs
+
+- `xml2`
+- `jsonlite`
+- `httr`
+
+
+## Web Scraping
+
+- `rvest`
