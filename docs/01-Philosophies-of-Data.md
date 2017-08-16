@@ -1,6 +1,93 @@
 # Philosophies of Data
 
-## Data Objects
+## What are Data
+
+Data are observations about the world. In order to make sense of and give
+context to these observations we organize data into structures.
+
+## Data Frames and Tibbles
+
+R is an object oriented programming language, and there are several varieties
+of R objects you can use to represent data. In this book we will concentrate
+mostly on how to use data frames as the central object for thinking about data.
+Data frames are rectangular data objects, meaning that they are composed of
+rows and columns, much like the layout of a piece of graph paper or a
+spreadsheet. In the next few chapters we'll discuss how you can import data
+into R from many different sources, but you can also create data frames with
+code alone.
+
+There's no better tool for creating your own data frames from scratch than the
+`tibble` package. Install the package with `install.packages("tibble")`, and
+then we can start creating our own data frames.
+
+Let's start up the package and then create a simple data frame, where every
+column is specified with a simple vector:
+
+
+```r
+library(tibble)
+
+people <- data_frame(Name = c("Shannon", "Jeff", "Sean", "Roger"),
+           Department = c("Genetics", "Biostatistics", "Cognitive Science", "Biostatistics"),
+           School = c("JHU", "JHU", "UCSD", "Monash"))
+people
+```
+
+```
+## # A tibble: 4 x 3
+##      Name        Department School
+##     <chr>             <chr>  <chr>
+## 1 Shannon          Genetics    JHU
+## 2    Jeff     Biostatistics    JHU
+## 3    Sean Cognitive Science   UCSD
+## 4   Roger     Biostatistics Monash
+```
+
+Let's take a look at what is printed when we enter our table of `people` in the
+R console. The first line, `# A tibble: 4 x 3`, shows that the object being
+printed *is* a tibble. A tibble is a data frame with some nice extra properties
+which we'll discuss later. The second line, `Name   Department   School`, shows
+the column names for the tibble. The third line, `<chr>   <chr>   <chr>`, shows
+the type of data in each column. After the third line, each line shows one row
+in the dataset, starting with a row number.
+
+We can add rows and columns using the `add_row()` and `add_column()` functions
+respectively. The `add_row()` function takes an argument for each column in the
+tibble while the `add_column()` function takes an argument for each row in the
+tibble.
+
+
+```r
+people <- add_row(people, Name = "Brian", Department = "Biostatistics", School = "JHU")
+people
+```
+
+```
+## # A tibble: 5 x 3
+##      Name        Department School
+##     <chr>             <chr>  <chr>
+## 1 Shannon          Genetics    JHU
+## 2    Jeff     Biostatistics    JHU
+## 3    Sean Cognitive Science   UCSD
+## 4   Roger     Biostatistics Monash
+## 5   Brian     Biostatistics    JHU
+```
+
+```r
+people <- add_column(people, Puppet = c(FALSE, TRUE, FALSE, TRUE, TRUE))
+people
+```
+
+```
+## # A tibble: 5 x 4
+##      Name        Department School Puppet
+##     <chr>             <chr>  <chr>  <lgl>
+## 1 Shannon          Genetics    JHU  FALSE
+## 2    Jeff     Biostatistics    JHU   TRUE
+## 3    Sean Cognitive Science   UCSD  FALSE
+## 4   Roger     Biostatistics Monash   TRUE
+## 5   Brian     Biostatistics    JHU   TRUE
+```
 
 ## Tidy Data
 
