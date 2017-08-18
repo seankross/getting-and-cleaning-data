@@ -1,7 +1,7 @@
 ---
 title: "Getting and Cleaning Data"
 author: "Sean Kross"
-date: "2017-08-17"
+date: "2017-08-18"
 site: bookdown::bookdown_site
 documentclass: book
 cover-image: "images/cover.png"

@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-08-17">
+<meta name="date" content="2017-08-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -107,7 +107,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html"><i class="fa fa-check"></i><b>1</b> Philosophies of Data</a><ul>
 <li class="chapter" data-level="1.1" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#what-are-data"><i class="fa fa-check"></i><b>1.1</b> What are Data</a></li>
-<li class="chapter" data-level="1.2" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>1.2</b> Data Frames and Tibbles</a></li>
+<li class="chapter" data-level="1.2" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>1.2</b> Data Frames and Tibbles</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#summary"><i class="fa fa-check"></i><b>1.2.1</b> Summary</a></li>
+<li class="chapter" data-level="1.2.2" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#exercises"><i class="fa fa-check"></i><b>1.2.2</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="1.3" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#tidy-data"><i class="fa fa-check"></i><b>1.3</b> Tidy Data</a></li>
 <li class="chapter" data-level="1.4" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#matrix-data"><i class="fa fa-check"></i><b>1.4</b> Matrix Data</a></li>
 <li class="chapter" data-level="1.5" data-path="philosophies-of-data.html"><a href="philosophies-of-data.html#hierarchical-data"><i class="fa fa-check"></i><b>1.5</b> Hierarchical Data</a></li>
@@ -196,15 +199,235 @@ people</code></pre></div>
 ## 3    Sean Cognitive Science   UCSD  FALSE
 ## 4   Roger     Biostatistics Monash   TRUE
 ## 5   Brian     Biostatistics    JHU   TRUE</code></pre>
+<p>Sometimes it’s advantageous to view a tibble with the columns on the left, so that all of the column names are printed to the console. You can use the <code>glimpse()</code> function to flip a tibble along its diagonal axis from upper left to lower right for viewing purposes, like a matrix transpose:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(people)</code></pre></div>
+<pre><code>## Observations: 5
+## Variables: 4
+## $ Name       &lt;chr&gt; &quot;Shannon&quot;, &quot;Jeff&quot;, &quot;Sean&quot;, &quot;Roger&quot;, &quot;Brian&quot;
+## $ Department &lt;chr&gt; &quot;Genetics&quot;, &quot;Biostatistics&quot;, &quot;Cognitive Science&quot;, &quot;...
+## $ School     &lt;chr&gt; &quot;JHU&quot;, &quot;JHU&quot;, &quot;UCSD&quot;, &quot;Monash&quot;, &quot;JHU&quot;
+## $ Puppet     &lt;lgl&gt; FALSE, TRUE, FALSE, TRUE, TRUE</code></pre>
+<p>In additiion to creating tibbles from scratch with <code>data_frame()</code>, you can also just use the <code>tibble()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rhode_island &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+  <span class="dt">County =</span> <span class="kw">c</span>(<span class="st">&quot;Bristol&quot;</span>, <span class="st">&quot;Kent&quot;</span>, <span class="st">&quot;Newport&quot;</span>, <span class="st">&quot;Providence&quot;</span>, <span class="st">&quot;Washington&quot;</span>),
+  <span class="dt">Population =</span> <span class="kw">c</span>(<span class="dv">49875</span>, <span class="dv">166158</span>, <span class="dv">82888</span>, <span class="dv">626667</span>, <span class="dv">126979</span>)
+)
+
+rhode_island</code></pre></div>
+<pre><code>## # A tibble: 5 x 2
+##       County Population
+##        &lt;chr&gt;      &lt;dbl&gt;
+## 1    Bristol      49875
+## 2       Kent     166158
+## 3    Newport      82888
+## 4 Providence     626667
+## 5 Washington     126979</code></pre>
+<p>The tibble package also provides the handy <code>tribble()</code> function, which allows you to construct tibbles row-wise instead of column-wise:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">uc_schools &lt;-<span class="st"> </span><span class="kw">tribble</span>(
+  <span class="op">~</span>Name,         <span class="op">~</span>Founded, <span class="op">~</span>Enrolled,
+  <span class="st">&quot;Los Angeles&quot;</span>,     <span class="dv">1919</span>,     <span class="dv">42239</span>,
+  <span class="st">&quot;Berkeley&quot;</span>,        <span class="dv">1868</span>,     <span class="dv">37581</span>,
+  <span class="st">&quot;Davis&quot;</span>,           <span class="dv">1908</span>,     <span class="dv">35415</span>,
+  <span class="st">&quot;San Diego&quot;</span>,       <span class="dv">1960</span>,     <span class="dv">31502</span>,
+  <span class="st">&quot;Irvine&quot;</span>,          <span class="dv">1965</span>,     <span class="dv">30757</span>,
+  <span class="st">&quot;Santa Barbara&quot;</span>,   <span class="dv">1909</span>,     <span class="dv">23051</span>,
+  <span class="st">&quot;Riverside&quot;</span>,       <span class="dv">1954</span>,     <span class="dv">21680</span>,
+  <span class="st">&quot;Santa Cruz&quot;</span>,      <span class="dv">1965</span>,     <span class="dv">17866</span>,
+  <span class="st">&quot;Merced&quot;</span>,          <span class="dv">2005</span>,      <span class="dv">6268</span>,
+  <span class="st">&quot;San Fransisco&quot;</span>,   <span class="dv">1873</span>,      <span class="dv">4904</span>
+)
+
+uc_schools</code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##             Name Founded Enrolled
+##            &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+##  1   Los Angeles    1919    42239
+##  2      Berkeley    1868    37581
+##  3         Davis    1908    35415
+##  4     San Diego    1960    31502
+##  5        Irvine    1965    30757
+##  6 Santa Barbara    1909    23051
+##  7     Riverside    1954    21680
+##  8    Santa Cruz    1965    17866
+##  9        Merced    2005     6268
+## 10 San Fransisco    1873     4904</code></pre>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Summary</h3>
+<ul>
+<li>Data frames are rectangular data sctructures like spreadsheets.</li>
+<li>Tibbles are data frames with extra helpful features.</li>
+<li>You can create a tibble with <code>tibble()</code> and add rows and columns with <code>add_row()</code> and <code>add_column()</code>.</li>
+<li>View a transposed tibble with <code>glimpse()</code>.</li>
+<li>Creat row-wise tibbles with <code>tribble()</code>.</li>
+</ul>
+</div>
+<div id="exercises" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Create a tibble like <code>uc_schools</code>, but with information about the four University Centers that are part of the State University of New York system.</li>
+<li>Construct the tibble you just created with <code>tribble()</code>.</li>
+</ol>
+</div>
 </div>
 <div id="tidy-data" class="section level2">
 <h2><span class="header-section-number">1.3</span> Tidy Data</h2>
+<p>We’re living through an exciting moment in history where data science is emerging as its own academic discipline. One of data science’s central ideas is the notion of tidy data, which Hadley Wickham introduced in his <a href="http://vita.had.co.nz/papers/tidy-data.html">Tidy Data</a> paper in the Jouranl of Statistical Software. I strongly recommend that you read the paper. The concept of tidy data boils down to three principles:</p>
+<ol style="list-style-type: decimal">
+<li>Groups of observations should be stored in rectangular tables.</li>
+<li>Each observation should be represented by a row in the table.</li>
+<li>Each variable observed should be represented by a column in the table.</li>
+</ol>
+<p>Practicing tidy data principles can help you ask important questions about your data. Let’s take a look at an example of an untidy dataset of people in a drug trial:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Drug</th>
+<th align="right">&lt; 18</th>
+<th align="right">18-35</th>
+<th align="right">36-45</th>
+<th align="right">46-64</th>
+<th align="right">65+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jeffazapram</td>
+<td align="right">5</td>
+<td align="right">16</td>
+<td align="right">11</td>
+<td align="right">32</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Rogerdone</td>
+<td align="right">14</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">18</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Brianophil</td>
+<td align="right">66</td>
+<td align="right">72</td>
+<td align="right">81</td>
+<td align="right">30</td>
+<td align="right">21</td>
+</tr>
+</tbody>
+</table>
+<p>Looking at this table we can see that first column contains the names of each drug. Every other column corresponds to an age group of study participants, with the number of participants in each column. When evaluating if a dataset is tidy first ask: what are the variables in the dataset? Here we can identify three variables: the name of the drug, the age group of the participants, and the number of people in each drug/age group. After you’ve identified the variables ask: is each variable represented with a column? Here we can see that the three variables we identified are not represented by columns. Let’s take a look at the tidy version of this dataset:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Drug</th>
+<th align="left">Age</th>
+<th align="right">Participants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jeffazapram</td>
+<td align="left">&lt; 18</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Rogerdone</td>
+<td align="left">&lt; 18</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Brianophil</td>
+<td align="left">&lt; 18</td>
+<td align="right">66</td>
+</tr>
+<tr class="even">
+<td align="left">Jeffazapram</td>
+<td align="left">18-35</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Rogerdone</td>
+<td align="left">18-35</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Brianophil</td>
+<td align="left">18-35</td>
+<td align="right">72</td>
+</tr>
+<tr class="odd">
+<td align="left">Jeffazapram</td>
+<td align="left">36-45</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Rogerdone</td>
+<td align="left">36-45</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Brianophil</td>
+<td align="left">36-45</td>
+<td align="right">81</td>
+</tr>
+<tr class="even">
+<td align="left">Jeffazapram</td>
+<td align="left">46-64</td>
+<td align="right">32</td>
+</tr>
+<tr class="odd">
+<td align="left">Rogerdone</td>
+<td align="left">46-64</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Brianophil</td>
+<td align="left">46-64</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="left">Jeffazapram</td>
+<td align="left">65+</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Rogerdone</td>
+<td align="left">65+</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Brianophil</td>
+<td align="left">65+</td>
+<td align="right">21</td>
+</tr>
+</tbody>
+</table>
+<p>Both tables show the same information, and the tidy version of the table is larger than the untidy version. In the following chapters we will discuss how they tidy data allows us to ask questions about data more easily.</p>
 </div>
 <div id="matrix-data" class="section level2">
 <h2><span class="header-section-number">1.4</span> Matrix Data</h2>
+<p>Besides data frames and tibbles the other rectagular shaped data sctructure you should be aware of in R is the matrix. Matricies encode at least three different pieces of information about each value in the matrix: the X position of a value, the Y position of a value, and the value itself. We can create matricies using the <code>matrix()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;a&quot;  &quot;c&quot; 
+## [2,] &quot;b&quot;  &quot;d&quot;</code></pre>
+<p>When constructing a matrix from a vector the values are filled in column-wise by default. Matricies are often useful for storing images and performing operations with linear algebra.</p>
+<p>The same information in the matrix above would like this in a tidy dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tibble</span>(<span class="dt">X =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>), 
+       <span class="dt">Y =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), 
+       <span class="dt">Value =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##       X     Y Value
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     1     a
+## 2     1     2     b
+## 3     2     1     c
+## 4     2     2     d</code></pre>
 </div>
 <div id="hierarchical-data" class="section level2">
 <h2><span class="header-section-number">1.5</span> Hierarchical Data</h2>
+<p>One form of data that doesn’t fit neatly into a rectangle is heirarchical data. The most common hierarchical data sctructure in R is a list. Any other data structure can be the element of a list, and lists that contain other lists are often use to represent hierarchical data in R. We’ll encounter a few types of heirarchical data structures that can be converted to lists of lists when we discuss getting data from the web in a later chapter.</p>
 
 </div>
 </div>
