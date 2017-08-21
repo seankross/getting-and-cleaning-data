@@ -3,7 +3,12 @@
 ## What are Data
 
 Data are observations about the world. In order to make sense of and give
-context to these observations we organize data into structures.
+context to these observations we organize data into structures. In this chapter
+we'll discuss three general types of data structres: data frames, matricies,
+and hierarchies. When you're getting and cleaning data it's often useful to
+have one of these data structures in mind as an end goal of how you want your
+data to be organized. In the following chapters we'll show you how you can use
+each of these data structures in order to achieve your goals.
 
 ## Data Frames and Tibbles
 
