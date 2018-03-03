@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Getting and Cleaning Data</title>
   <meta name="description" content="Getting and Cleaning Data">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Getting and Cleaning Data" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-08-21">
+<meta name="date" content="2018-03-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -155,8 +155,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
-<p>Our world is awash with data. This book will explore ways of thinking about data and technologies that implement these ideas for importing, manuplulating, and structuring data.</p>
-<p>This book focuses on tools in the <a href="https://www.r-project.org/">R programming language</a>, and it is assumed that you’re already familiar with the basics of R. If you’re new to R I highly suggest getting started with <a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> by <a href="https://twitter.com/rdpeng">Roger Peng</a> or with <a href="http://swirlstats.com/">Swirl</a> for a more interactive approach. If you’re interested in a thorough treatment of advanced topics in R programming I recommend <a href="https://leanpub.com/msdr">Mastering Software Development in R</a> by Roger Peng, <a href="https://twitter.com/gbwanderson">Brooke Anderson</a>, and <a href="https://twitter.com/seankross">me</a>.</p>
+<p>We are currently in a strange time with respect to people’s beliefs and attitudes about data. You may have heard phrases like <a href="https://www.economist.com/news/leaders/21721656-data-economy-demands-new-approach-antitrust-rules-worlds-most-valuable-resource">“data is the new oil”</a> or <a href="http://informatics.mit.edu/blog/making-decisions-world-awash-data-we%E2%80%99re-going-need-different-boat-comments-anthony">“the world is awash with data”</a>. Despite the apparent value and ubiquity of data it is not obvious how data are generated, how generated data are collected, and how collected raw data are then organized into useful and meaningful structures. Nearly all of the “interesting” data being discussed in the public discourse is data that you likely don’t have access to: a small business’ Amazon purchases, a celebrity’s Facebook social graph, or the collective Google searches of a far-away country. Even if you have access to interesting data, it’s often not obvious how to import raw data into an environment where you can examine it, or how to manipulate the data into a form so that it can be analyzed.</p>
+<p>The goal of this book is teach you principles that can be applied to thinking about data at any scale, and to equip you with technical skills so that the structure or state of your data is not an obstacle in the way of accomplishing your ultimate goals. A core part of data science is doing <a href="https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html">“data janitor”</a> type work. Despite the fact that this work is perceived as unglamorous compared to visualization or modeling, the integrity of the data analytic process depends on data that has been obtained and reshaped with integrity. The ability to develop readable, approachable, and flexible code for handling data will only increase in demand considering the growing role that data plays in our society.</p>
+<p>It’s not at all obvious how to obtain datasets that are appropriate for data scientific methods. Unlike oil, data doesn’t require millions of dollars in infrastructure to start collecting fractional amounts of the raw material. If you wanted to, you could start logging the outdoor temperature in the mornings, or how many birds you see every day. The issue with this kind of data collection is that it doesn’t scale well: it requires you as an individual to make a single observation every day. Most data generated today are not made by people recording observations, they are made by computers logging the actions or behaviors of people or even other computers. In this book you will learn where to find large datasets and how to write programs for collecting data.</p>
+<p>This book focuses on tools in the <a href="https://www.r-project.org/">R programming language</a>, so you should already be familiar with the basics of R before you begin this book. If you’re new to R I highly suggest getting started with <a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> by <a href="https://twitter.com/rdpeng">Roger Peng</a> or with <a href="http://swirlstats.com/">Swirl</a> for a more interactive approach. If you’re interested in a thorough treatment of advanced topics in R programming I recommend <a href="https://leanpub.com/msdr">Mastering Software Development in R</a> by Roger Peng, <a href="https://twitter.com/gbwanderson">Brooke Anderson</a>, and <a href="https://twitter.com/seankross">me</a>.</p>
 
 </div>
             </section>
@@ -176,7 +178,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

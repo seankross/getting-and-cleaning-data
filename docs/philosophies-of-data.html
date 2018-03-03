@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Getting and Cleaning Data</title>
   <meta name="description" content="Getting and Cleaning Data">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Getting and Cleaning Data" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Sean Kross">
 
 
-<meta name="date" content="2017-08-21">
+<meta name="date" content="2018-03-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -171,34 +171,34 @@ people &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span cl
            <span class="dt">School =</span> <span class="kw">c</span>(<span class="st">&quot;JHU&quot;</span>, <span class="st">&quot;JHU&quot;</span>, <span class="st">&quot;UCSD&quot;</span>, <span class="st">&quot;Monash&quot;</span>))
 people</code></pre></div>
 <pre><code>## # A tibble: 4 x 3
-##      Name        Department School
-##     &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;
-## 1 Shannon          Genetics    JHU
-## 2    Jeff     Biostatistics    JHU
-## 3    Sean Cognitive Science   UCSD
-## 4   Roger     Biostatistics Monash</code></pre>
+##   Name    Department        School
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt; 
+## 1 Shannon Genetics          JHU   
+## 2 Jeff    Biostatistics     JHU   
+## 3 Sean    Cognitive Science UCSD  
+## 4 Roger   Biostatistics     Monash</code></pre>
 <p>Let’s take a look at what is printed when we enter our table of <code>people</code> in the R console. The first line, <code># A tibble: 4 x 3</code>, shows that the object being printed <em>is</em> a tibble. A tibble is a data frame with some nice extra properties which we’ll discuss later. The second line, <code>Name   Department   School</code>, shows the column names for the tibble. The third line, <code>&lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;</code>, shows the type of data in each column. After the third line, each line shows one row in the dataset, starting with a row number.</p>
 <p>We can add rows and columns using the <code>add_row()</code> and <code>add_column()</code> functions respectively. The <code>add_row()</code> function takes an argument for each column in the tibble while the <code>add_column()</code> function takes an argument for each row in the tibble.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">people &lt;-<span class="st"> </span><span class="kw">add_row</span>(people, <span class="dt">Name =</span> <span class="st">&quot;Brian&quot;</span>, <span class="dt">Department =</span> <span class="st">&quot;Biostatistics&quot;</span>, <span class="dt">School =</span> <span class="st">&quot;JHU&quot;</span>)
 people</code></pre></div>
 <pre><code>## # A tibble: 5 x 3
-##      Name        Department School
-##     &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;
-## 1 Shannon          Genetics    JHU
-## 2    Jeff     Biostatistics    JHU
-## 3    Sean Cognitive Science   UCSD
-## 4   Roger     Biostatistics Monash
-## 5   Brian     Biostatistics    JHU</code></pre>
+##   Name    Department        School
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt; 
+## 1 Shannon Genetics          JHU   
+## 2 Jeff    Biostatistics     JHU   
+## 3 Sean    Cognitive Science UCSD  
+## 4 Roger   Biostatistics     Monash
+## 5 Brian   Biostatistics     JHU</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">people &lt;-<span class="st"> </span><span class="kw">add_column</span>(people, <span class="dt">Puppet =</span> <span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>))
 people</code></pre></div>
 <pre><code>## # A tibble: 5 x 4
-##      Name        Department School Puppet
-##     &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;  &lt;lgl&gt;
-## 1 Shannon          Genetics    JHU  FALSE
-## 2    Jeff     Biostatistics    JHU   TRUE
-## 3    Sean Cognitive Science   UCSD  FALSE
-## 4   Roger     Biostatistics Monash   TRUE
-## 5   Brian     Biostatistics    JHU   TRUE</code></pre>
+##   Name    Department        School Puppet
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;  &lt;lgl&gt; 
+## 1 Shannon Genetics          JHU    F     
+## 2 Jeff    Biostatistics     JHU    T     
+## 3 Sean    Cognitive Science UCSD   F     
+## 4 Roger   Biostatistics     Monash T     
+## 5 Brian   Biostatistics     JHU    T</code></pre>
 <p>Sometimes it’s advantageous to view a tibble with the columns on the left, so that all of the column names are printed to the console. You can use the <code>glimpse()</code> function to flip a tibble along its diagonal axis from upper left to lower right for viewing purposes, like a matrix transpose:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(people)</code></pre></div>
 <pre><code>## Observations: 5
@@ -215,11 +215,11 @@ people</code></pre></div>
 
 rhode_island</code></pre></div>
 <pre><code>## # A tibble: 5 x 2
-##       County Population
-##        &lt;chr&gt;      &lt;dbl&gt;
-## 1    Bristol      49875
-## 2       Kent     166158
-## 3    Newport      82888
+##   County     Population
+##   &lt;chr&gt;           &lt;dbl&gt;
+## 1 Bristol         49875
+## 2 Kent           166158
+## 3 Newport         82888
 ## 4 Providence     626667
 ## 5 Washington     126979</code></pre>
 <p>The tibble package also provides the handy <code>tribble()</code> function, which allows you to construct tibbles row-wise instead of column-wise:</p>
@@ -239,17 +239,17 @@ rhode_island</code></pre></div>
 
 uc_schools</code></pre></div>
 <pre><code>## # A tibble: 10 x 3
-##             Name Founded Enrolled
-##            &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1   Los Angeles    1919    42239
-##  2      Berkeley    1868    37581
-##  3         Davis    1908    35415
-##  4     San Diego    1960    31502
-##  5        Irvine    1965    30757
+##    Name          Founded Enrolled
+##    &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Los Angeles      1919    42239
+##  2 Berkeley         1868    37581
+##  3 Davis            1908    35415
+##  4 San Diego        1960    31502
+##  5 Irvine           1965    30757
 ##  6 Santa Barbara    1909    23051
-##  7     Riverside    1954    21680
-##  8    Santa Cruz    1965    17866
-##  9        Merced    2005     6268
+##  7 Riverside        1954    21680
+##  8 Santa Cruz       1965    17866
+##  9 Merced           2005     6268
 ## 10 San Fransisco    1873     4904</code></pre>
 <div id="summary" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Summary</h3>
@@ -420,10 +420,10 @@ uc_schools</code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ##       X     Y Value
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
-## 1     1     1     a
-## 2     1     2     b
-## 3     2     1     c
-## 4     2     2     d</code></pre>
+## 1  1.00  1.00 a    
+## 2  1.00  2.00 b    
+## 3  2.00  1.00 c    
+## 4  2.00  2.00 d</code></pre>
 </div>
 <div id="hierarchical-data" class="section level2">
 <h2><span class="header-section-number">1.5</span> Hierarchical Data</h2>
@@ -448,7 +448,7 @@ uc_schools</code></pre></div>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

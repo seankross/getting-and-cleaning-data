@@ -40,12 +40,12 @@ people
 
 ```
 ## # A tibble: 4 x 3
-##      Name        Department School
-##     <chr>             <chr>  <chr>
-## 1 Shannon          Genetics    JHU
-## 2    Jeff     Biostatistics    JHU
-## 3    Sean Cognitive Science   UCSD
-## 4   Roger     Biostatistics Monash
+##   Name    Department        School
+##   <chr>   <chr>             <chr> 
+## 1 Shannon Genetics          JHU   
+## 2 Jeff    Biostatistics     JHU   
+## 3 Sean    Cognitive Science UCSD  
+## 4 Roger   Biostatistics     Monash
 ```
 
 Let's take a look at what is printed when we enter our table of `people` in the
@@ -69,13 +69,13 @@ people
 
 ```
 ## # A tibble: 5 x 3
-##      Name        Department School
-##     <chr>             <chr>  <chr>
-## 1 Shannon          Genetics    JHU
-## 2    Jeff     Biostatistics    JHU
-## 3    Sean Cognitive Science   UCSD
-## 4   Roger     Biostatistics Monash
-## 5   Brian     Biostatistics    JHU
+##   Name    Department        School
+##   <chr>   <chr>             <chr> 
+## 1 Shannon Genetics          JHU   
+## 2 Jeff    Biostatistics     JHU   
+## 3 Sean    Cognitive Science UCSD  
+## 4 Roger   Biostatistics     Monash
+## 5 Brian   Biostatistics     JHU
 ```
 
 ```r
@@ -85,13 +85,13 @@ people
 
 ```
 ## # A tibble: 5 x 4
-##      Name        Department School Puppet
-##     <chr>             <chr>  <chr>  <lgl>
-## 1 Shannon          Genetics    JHU  FALSE
-## 2    Jeff     Biostatistics    JHU   TRUE
-## 3    Sean Cognitive Science   UCSD  FALSE
-## 4   Roger     Biostatistics Monash   TRUE
-## 5   Brian     Biostatistics    JHU   TRUE
+##   Name    Department        School Puppet
+##   <chr>   <chr>             <chr>  <lgl> 
+## 1 Shannon Genetics          JHU    F     
+## 2 Jeff    Biostatistics     JHU    T     
+## 3 Sean    Cognitive Science UCSD   F     
+## 4 Roger   Biostatistics     Monash T     
+## 5 Brian   Biostatistics     JHU    T
 ```
 
 Sometimes it's advantageous to view a tibble with the columns on the left, so
@@ -128,11 +128,11 @@ rhode_island
 
 ```
 ## # A tibble: 5 x 2
-##       County Population
-##        <chr>      <dbl>
-## 1    Bristol      49875
-## 2       Kent     166158
-## 3    Newport      82888
+##   County     Population
+##   <chr>           <dbl>
+## 1 Bristol         49875
+## 2 Kent           166158
+## 3 Newport         82888
 ## 4 Providence     626667
 ## 5 Washington     126979
 ```
@@ -161,17 +161,17 @@ uc_schools
 
 ```
 ## # A tibble: 10 x 3
-##             Name Founded Enrolled
-##            <chr>   <dbl>    <dbl>
-##  1   Los Angeles    1919    42239
-##  2      Berkeley    1868    37581
-##  3         Davis    1908    35415
-##  4     San Diego    1960    31502
-##  5        Irvine    1965    30757
+##    Name          Founded Enrolled
+##    <chr>           <dbl>    <dbl>
+##  1 Los Angeles      1919    42239
+##  2 Berkeley         1868    37581
+##  3 Davis            1908    35415
+##  4 San Diego        1960    31502
+##  5 Irvine           1965    30757
 ##  6 Santa Barbara    1909    23051
-##  7     Riverside    1954    21680
-##  8    Santa Cruz    1965    17866
-##  9        Merced    2005     6268
+##  7 Riverside        1954    21680
+##  8 Santa Cruz       1965    17866
+##  9 Merced           2005     6268
 ## 10 San Fransisco    1873     4904
 ```
 
@@ -283,10 +283,10 @@ tibble(X = c(1, 1, 2, 2),
 ## # A tibble: 4 x 3
 ##       X     Y Value
 ##   <dbl> <dbl> <chr>
-## 1     1     1     a
-## 2     1     2     b
-## 3     2     1     c
-## 4     2     2     d
+## 1  1.00  1.00 a    
+## 2  1.00  2.00 b    
+## 3  2.00  1.00 c    
+## 4  2.00  2.00 d
 ```
 
 
