@@ -2,7 +2,11 @@
 
 ## What are Data
 
-Data are observations about the world. In order to make sense of and give
+Data are observations about the world. 
+
+<!--
+
+In order to make sense of and give
 context to these observations we organize data into structures. In this chapter
 we'll discuss three general types of data structres: data frames, matricies,
 and hierarchies. When you're getting and cleaning data it's often useful to
@@ -298,3 +302,5 @@ structure can be the element of a list, and lists that contain other lists are
 often use to represent hierarchical data in R. We'll encounter a few types of
 heirarchical data structures that can be converted to lists of lists when we
 discuss getting data from the web in a later chapter.
+
+-->

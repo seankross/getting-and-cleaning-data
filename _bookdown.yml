@@ -2,6 +2,6 @@ book_filename: "getting-and-cleaning-data"
 chapter_name: "Chapter "
 repo: https://github.com/seankross/getting-and-cleaning-data
 output_dir: docs
-#rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd"]
+rmd_files: ["index.Rmd", "01-Philosophies-of-Data.Rmd", "02-Importing-Data.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

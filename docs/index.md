@@ -1,7 +1,7 @@
 ---
 title: "Getting and Cleaning Data"
 author: "Sean Kross"
-date: "2018-03-02"
+date: "2018-03-07"
 site: bookdown::bookdown_site
 documentclass: book
 cover-image: "images/cover.png"
@@ -19,6 +19,11 @@ description: ""
 
 Cover Image: *The Crossing Sweeper* by Seymour Joseph Guy
 
+[![CC BY 4.0](https://licensebuttons.net/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+This work by [Sean Kross](http://seankross.com) is licensed
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
 # Introduction {-}
 
 We are currently in a strange time with respect to people's beliefs and
@@ -26,24 +31,28 @@ attitudes about data. You may have heard phrases like
 ["data is the new oil"](https://www.economist.com/news/leaders/21721656-data-economy-demands-new-approach-antitrust-rules-worlds-most-valuable-resource)
 or ["the world is awash with data"](http://informatics.mit.edu/blog/making-decisions-world-awash-data-we%E2%80%99re-going-need-different-boat-comments-anthony). Despite the apparent value and ubiquity of
 data it is not obvious how data are generated, how generated data are collected,
-and how collected raw data are then organized into useful and meaningful
-structures. Nearly all of the "interesting" data being discussed in the public
+or how collected raw data are organized into a structure that is useful and meaningful.
+Nearly all of the "interesting" data being discussed in the public
 discourse is data that you likely don't have access to: a small business' Amazon
 purchases, a celebrity's Facebook social graph, or the collective Google
 searches of a far-away country. Even if you have access to interesting data,
-it's often not obvious how to import raw data into an environment where you can
+it is often not obvious how to import raw data into an environment where you can
 examine it, or how to manipulate the data into a form so that it can be analyzed.
 
 The goal of this book is teach you principles that can be applied to thinking
 about data at any scale, and to equip you with technical skills so that the
 structure or state of your data is not an obstacle in the way of accomplishing
-your ultimate goals. A core part of data science is doing
+your ultimate goals. A core part of data science is doing what has been characterized as
 ["data janitor"](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html)
-type work. Despite the fact that this work is perceived as unglamorous compared to
-visualization or modeling, the integrity of the data analytic process depends on
-data that has been obtained and reshaped with integrity. The ability to develop
-readable, approachable, and flexible code for handling data will only increase in
-demand considering the growing role that data plays in our society.
+type work. 
+This work is often perceived as unglamorous compared to other parts of the data
+analytic process like visualization or modeling, however in this book I hope to
+show how data wrangling can be fun! The integrity of any data analysis depends on
+data that has been obtained and reshaped responsibly, which makes it difficult
+to over-emphasize the importance of methods for getting and cleaning data.
+The ability to develop readable, approachable, and flexible code for handling 
+data will only increase in demand considering the growing role that data plays 
+in our society.
 
 It's not at all obvious how to obtain datasets that are appropriate for data
 scientific methods. Unlike oil, data
@@ -54,7 +63,7 @@ day. The issue with this kind of data collection is that it doesn't scale well:
 it requires you as an individual to make a single observation every day.
 Most data generated today are not made by people recording observations, they are
 made by computers logging the actions or behaviors of people or even other
-computers. In this book you will learn where to find large datasets and how to
+computers. In this book you will learn where to find datasets and how to
 write programs for collecting data.
 
 This book focuses on tools in the [R programming language](https://www.r-project.org/),
